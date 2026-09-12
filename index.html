@@ -3,41 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
+    <title>Food Delivery Management System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <div class="task-box">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">🍔 FoodExpress</div>
 
-            <h1>📝 Task Manager</h1>
-            <p class="subtitle">Manage your daily tasks easily</p>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#restaurants">Restaurants</a>
+            <a href="#orders">Orders</a>
+            <button onclick="openRegistration()">Register</button>
+            <button class="cart-button" onclick="openCart()">
+                🛒 Cart <span id="cartCount">0</span>
+            </button>
+        </div>
+    </nav>
 
-            <div class="input-section">
-                <input 
-                    type="text" 
-                    id="taskInput" 
-                    placeholder="Enter a new task..."
+
+    <!-- Home -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+            <h1>Delicious Food, Delivered Fast! 🍕</h1>
+
+            <p>
+                Order your favourite food from the best restaurants
+                near you.
+            </p>
+
+            <button onclick="scrollToRestaurants()" class="primary-btn">
+                Explore Restaurants
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- Restaurant Search -->
+    <section id="restaurants" class="section">
+
+        <h2>🍽️ Find Restaurants</h2>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="restaurantSearch"
+                placeholder="Search restaurant or cuisine..."
+                onkeyup="searchRestaurants()"
+            >
+        </div>
+
+        <div id="restaurantList" class="restaurant-grid">
+
+            <div class="restaurant-card" data-name="Pizza Palace">
+                <div class="restaurant-image">🍕</div>
+                <h3>Pizza Palace</h3>
+                <p>Italian • Pizza • Fast Food</p>
+                <span>⭐ 4.5</span>
+                <button onclick="viewMenu('Pizza Palace')">
+                    View Menu
+                </button>
+            </div>
+
+            <div class="restaurant-card" data-name="Burger House">
+                <div class="restaurant-image">🍔</div>
+                <h3>Burger House</h3>
+                <p>American • Burgers • Fast Food</p>
+                <span>⭐ 4.3</span>
+                <button onclick="viewMenu('Burger House')">
+                    View Menu
+                </button>
+            </div>
+
+            <div class="restaurant-card" data-name="Spice Garden">
+                <div class="restaurant-image">🍛</div>
+                <h3>Spice Garden</h3>
+                <p>Indian • North Indian • Thali</p>
+                <span>⭐ 4.7</span>
+                <button onclick="viewMenu('Spice Garden')">
+                    View Menu
+                </button>
+            </div>
+
+            <div class="restaurant-card" data-name="Sushi World">
+                <div class="restaurant-image">🍣</div>
+                <h3>Sushi World</h3>
+                <p>Japanese • Sushi • Asian</p>
+                <span>⭐ 4.6</span>
+                <button onclick="viewMenu('Sushi World')">
+                    View Menu
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Food Menu -->
+    <section id="menu" class="section menu-section">
+
+        <h2 id="menuTitle">🍴 Food Menu</h2>
+
+        <div id="foodMenu" class="food-grid">
+
+            <div class="food-card">
+                <div class="food-image">🍕</div>
+                <h3>Margherita Pizza</h3>
+                <p>Fresh tomato, cheese and basil</p>
+                <strong>₹249</strong>
+                <button onclick="addToCart('Margherita Pizza', 249)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="food-card">
+                <div class="food-image">🍔</div>
+                <h3>Classic Burger</h3>
+                <p>Cheese burger with fresh vegetables</p>
+                <strong>₹199</strong>
+                <button onclick="addToCart('Classic Burger', 199)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="food-card">
+                <div class="food-image">🍝</div>
+                <h3>Italian Pasta</h3>
+                <p>Creamy pasta with herbs and vegetables</p>
+                <strong>₹229</strong>
+                <button onclick="addToCart('Italian Pasta', 229)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="food-card">
+                <div class="food-image">🍛</div>
+                <h3>Paneer Thali</h3>
+                <p>Complete Indian meal with paneer</p>
+                <strong>₹299</strong>
+                <button onclick="addToCart('Paneer Thali', 299)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="food-card">
+                <div class="food-image">🍣</div>
+                <h3>Sushi Platter</h3>
+                <p>Fresh assorted sushi platter</p>
+                <strong>₹399</strong>
+                <button onclick="addToCart('Sushi Platter', 399)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="food-card">
+                <div class="food-image">🥤</div>
+                <h3>Cold Drink</h3>
+                <p>Refreshing chilled beverage</p>
+                <strong>₹79</strong>
+                <button onclick="addToCart('Cold Drink', 79)">
+                    Add to Cart
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Orders -->
+    <section id="orders" class="section">
+
+        <h2>📦 Track Your Order</h2>
+
+        <div id="orderStatus" class="order-box">
+
+            <div class="status-step active">
+                <span>✓</span>
+                <p>Order Placed</p>
+            </div>
+
+            <div class="status-line"></div>
+
+            <div class="status-step">
+                <span>2</span>
+                <p>Preparing</p>
+            </div>
+
+            <div class="status-line"></div>
+
+            <div class="status-step">
+                <span>3</span>
+                <p>Out for Delivery</p>
+            </div>
+
+            <div class="status-line"></div>
+
+            <div class="status-step">
+                <span>4</span>
+                <p>Delivered</p>
+            </div>
+
+        </div>
+
+        <p id="trackingMessage">
+            Your order status will appear here.
+        </p>
+
+    </section>
+
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closeRegistration()">
+                &times;
+            </span>
+
+            <h2>👤 User Registration</h2>
+
+            <form onsubmit="registerUser(event)">
+
+                <input
+                    type="text"
+                    id="userName"
+                    placeholder="Enter your name"
+                    required
                 >
-                <button onclick="addTask()">Add Task</button>
+
+                <input
+                    type="email"
+                    id="userEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    id="userPhone"
+                    placeholder="Enter phone number"
+                    required
+                >
+
+                <button type="submit" class="primary-btn">
+                    Register
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+
+        <div class="modal-content cart-content">
+
+            <span class="close" onclick="closeCart()">
+                &times;
+            </span>
+
+            <h2>🛒 Your Cart</h2>
+
+            <div id="cartItems"></div>
+
+            <div class="cart-total">
+                <strong>Total: ₹<span id="cartTotal">0</span></strong>
             </div>
 
-            <div class="task-info">
-                <span>Total Tasks: <b id="totalTasks">0</b></span>
-                <span>Completed: <b id="completedTasks">0</b></span>
-            </div>
-
-            <ul id="taskList"></ul>
-
-            <button class="clear-btn" onclick="clearCompleted()">
-                Clear Completed
+            <button onclick="placeOrder()" class="primary-btn">
+                Place Order
             </button>
 
         </div>
+
     </div>
 
+
+    <footer>
+        <p>© 2026 FoodExpress | Food Delivery Management System</p>
+    </footer>
+
+
     <script src="script.js"></script>
+
 </body>
 </html>
