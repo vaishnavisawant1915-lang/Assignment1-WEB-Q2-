@@ -1,0 +1,59 @@
+name: Food Delivery CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-test-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build application
+        run: |
+          mkdir dist
+          cp index.html style.css script.js dist/
+          echo "Build completed successfully."
+
+      - name: Test application files
+        run: |
+          test -f dist/index.html
+          test -f dist/style.css
+          test -f dist/script.js
+          echo "All application files passed the test."
+
+      - name: Package application
+        run: |
+          cd dist
+          zip -r ../food-delivery-app.zip .
+          echo "Application packaged successfully."
+
+      - name: Upload deployment artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build-test-package
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy application
+        id: deployment
+        uses: actions/deploy-pages@v4
