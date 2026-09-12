@@ -9,7 +9,9 @@
 
 <body>
 
+    <!-- NAVBAR -->
     <nav class="navbar">
+
         <div class="logo">🍔 FoodExpress</div>
 
         <div class="nav-links">
@@ -18,242 +20,449 @@
             <a href="#menu">Menu</a>
             <a href="#orders">Orders</a>
 
-            <button onclick="openRegistration()">Register</button>
+            <button onclick="openRegistration()">
+                Register
+            </button>
 
             <button class="cart-button" onclick="openCart()">
                 🛒 Cart <span id="cartCount">0</span>
             </button>
         </div>
+
     </nav>
 
 
+    <!-- HOME -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Delicious Food, Delivered Fast! 🍕</h1>
-            <p>Order your favourite food from the best restaurants near you.</p>
 
-            <button onclick="scrollToRestaurants()" class="primary-btn">
+        <div class="hero-content">
+
+            <h1>
+                Delicious Food, Delivered Fast! 🍕
+            </h1>
+
+            <p>
+                Order your favourite food from the best restaurants near you.
+            </p>
+
+            <button
+                onclick="scrollToRestaurants()"
+                class="primary-btn">
                 Explore Restaurants
             </button>
+
         </div>
+
     </section>
 
 
+    <!-- RESTAURANTS -->
     <section id="restaurants" class="section">
 
         <h2>🍽️ Find Restaurants</h2>
 
+        <!-- NEW FEATURE -->
+        <p class="section-subtitle">
+            Search your favourite restaurant and discover delicious food!
+        </p>
+
         <div class="search-box">
+
             <input
                 type="text"
                 id="restaurantSearch"
                 placeholder="Search restaurant or cuisine..."
                 onkeyup="searchRestaurants()"
             >
+
         </div>
+
 
         <div id="restaurantList" class="restaurant-grid">
 
-            <div class="restaurant-card" data-name="Pizza Palace">
-                <div class="restaurant-image">🍕</div>
+            <!-- RESTAURANT 1 -->
+            <div
+                class="restaurant-card"
+                data-name="Pizza Palace">
+
+                <div class="restaurant-image">
+                    🍕
+                </div>
+
                 <h3>Pizza Palace</h3>
-                <p>Italian • Pizza • Fast Food</p>
-                <span>⭐ 4.5</span>
+
+                <p>
+                    Italian • Pizza • Fast Food
+                </p>
+
+                <span>
+                    ⭐ 4.5
+                </span>
 
                 <button onclick="viewMenu('Pizza Palace')">
                     View Menu
                 </button>
+
             </div>
 
 
-            <div class="restaurant-card" data-name="Burger House">
-                <div class="restaurant-image">🍔</div>
+            <!-- RESTAURANT 2 -->
+            <div
+                class="restaurant-card"
+                data-name="Burger House">
+
+                <div class="restaurant-image">
+                    🍔
+                </div>
+
                 <h3>Burger House</h3>
-                <p>American • Burgers • Fast Food</p>
-                <span>⭐ 4.3</span>
+
+                <p>
+                    American • Burgers • Fast Food
+                </p>
+
+                <span>
+                    ⭐ 4.3
+                </span>
 
                 <button onclick="viewMenu('Burger House')">
                     View Menu
                 </button>
+
             </div>
 
 
-            <div class="restaurant-card" data-name="Spice Garden">
-                <div class="restaurant-image">🍛</div>
+            <!-- RESTAURANT 3 -->
+            <div
+                class="restaurant-card"
+                data-name="Spice Garden">
+
+                <div class="restaurant-image">
+                    🍛
+                </div>
+
                 <h3>Spice Garden</h3>
-                <p>Indian • North Indian • Thali</p>
-                <span>⭐ 4.7</span>
+
+                <p>
+                    Indian • North Indian • Thali
+                </p>
+
+                <span>
+                    ⭐ 4.7
+                </span>
 
                 <button onclick="viewMenu('Spice Garden')">
                     View Menu
                 </button>
+
             </div>
 
 
-            <div class="restaurant-card" data-name="Sushi World">
-                <div class="restaurant-image">🍣</div>
+            <!-- RESTAURANT 4 -->
+            <div
+                class="restaurant-card"
+                data-name="Sushi World">
+
+                <div class="restaurant-image">
+                    🍣
+                </div>
+
                 <h3>Sushi World</h3>
-                <p>Japanese • Sushi • Asian</p>
-                <span>⭐ 4.6</span>
+
+                <p>
+                    Japanese • Sushi • Asian
+                </p>
+
+                <span>
+                    ⭐ 4.6
+                </span>
 
                 <button onclick="viewMenu('Sushi World')">
                     View Menu
                 </button>
+
             </div>
 
         </div>
+
     </section>
 
 
+    <!-- FOOD MENU -->
     <section id="menu" class="section menu-section">
 
-        <h2 id="menuTitle">🍴 Food Menu</h2>
+        <h2 id="menuTitle">
+            🍴 Food Menu
+        </h2>
+
 
         <div id="foodMenu" class="food-grid">
 
+            <!-- FOOD 1 -->
             <div class="food-card">
-                <div class="food-image">🍕</div>
 
-                <h3>Margherita Pizza</h3>
+                <div class="food-image">
+                    🍕
+                </div>
 
-                <p>Fresh tomato, cheese and basil</p>
+                <h3>
+                    Margherita Pizza
+                </h3>
 
-                <strong>₹249</strong>
+                <p>
+                    Fresh tomato, cheese and basil
+                </p>
 
-                <button onclick="addToCart('Margherita Pizza', 249)">
+                <strong>
+                    ₹249
+                </strong>
+
+                <button
+                    onclick="addToCart('Margherita Pizza', 249)">
                     Add to Cart
                 </button>
+
             </div>
 
 
+            <!-- FOOD 2 -->
             <div class="food-card">
-                <div class="food-image">🍔</div>
 
-                <h3>Classic Burger</h3>
+                <div class="food-image">
+                    🍔
+                </div>
 
-                <p>Cheese burger with fresh vegetables</p>
+                <h3>
+                    Classic Burger
+                </h3>
 
-                <strong>₹199</strong>
+                <p>
+                    Cheese burger with fresh vegetables
+                </p>
 
-                <button onclick="addToCart('Classic Burger', 199)">
+                <strong>
+                    ₹199
+                </strong>
+
+                <button
+                    onclick="addToCart('Classic Burger', 199)">
                     Add to Cart
                 </button>
+
             </div>
 
 
+            <!-- FOOD 3 -->
             <div class="food-card">
-                <div class="food-image">🍝</div>
 
-                <h3>Italian Pasta</h3>
+                <div class="food-image">
+                    🍝
+                </div>
 
-                <p>Creamy pasta with herbs and vegetables</p>
+                <h3>
+                    Italian Pasta
+                </h3>
 
-                <strong>₹229</strong>
+                <p>
+                    Creamy pasta with herbs and vegetables
+                </p>
 
-                <button onclick="addToCart('Italian Pasta', 229)">
+                <strong>
+                    ₹229
+                </strong>
+
+                <button
+                    onclick="addToCart('Italian Pasta', 229)">
                     Add to Cart
                 </button>
+
             </div>
 
 
+            <!-- FOOD 4 -->
             <div class="food-card">
-                <div class="food-image">🍛</div>
 
-                <h3>Paneer Thali</h3>
+                <div class="food-image">
+                    🍛
+                </div>
 
-                <p>Complete Indian meal with paneer</p>
+                <h3>
+                    Paneer Thali
+                </h3>
 
-                <strong>₹299</strong>
+                <p>
+                    Complete Indian meal with paneer
+                </p>
 
-                <button onclick="addToCart('Paneer Thali', 299)">
+                <strong>
+                    ₹299
+                </strong>
+
+                <button
+                    onclick="addToCart('Paneer Thali', 299)">
                     Add to Cart
                 </button>
+
             </div>
 
 
+            <!-- FOOD 5 -->
             <div class="food-card">
-                <div class="food-image">🍣</div>
 
-                <h3>Sushi Platter</h3>
+                <div class="food-image">
+                    🍣
+                </div>
 
-                <p>Fresh assorted sushi platter</p>
+                <h3>
+                    Sushi Platter
+                </h3>
 
-                <strong>₹399</strong>
+                <p>
+                    Fresh assorted sushi platter
+                </p>
 
-                <button onclick="addToCart('Sushi Platter', 399)">
+                <strong>
+                    ₹399
+                </strong>
+
+                <button
+                    onclick="addToCart('Sushi Platter', 399)">
                     Add to Cart
                 </button>
+
             </div>
 
 
+            <!-- FOOD 6 -->
             <div class="food-card">
-                <div class="food-image">🥤</div>
 
-                <h3>Cold Drink</h3>
+                <div class="food-image">
+                    🥤
+                </div>
 
-                <p>Refreshing chilled beverage</p>
+                <h3>
+                    Cold Drink
+                </h3>
 
-                <strong>₹79</strong>
+                <p>
+                    Refreshing chilled beverage
+                </p>
 
-                <button onclick="addToCart('Cold Drink', 79)">
+                <strong>
+                    ₹79
+                </strong>
+
+                <button
+                    onclick="addToCart('Cold Drink', 79)">
                     Add to Cart
                 </button>
+
             </div>
 
 
-            <!-- NEW FEATURE: Chocolate Cake -->
-
+            <!-- FOOD 7 -->
             <div class="food-card">
-                <div class="food-image">🍰</div>
 
-                <h3>Chocolate Cake</h3>
+                <div class="food-image">
+                    🍰
+                </div>
 
-                <p>Rich chocolate cake with creamy frosting</p>
+                <h3>
+                    Chocolate Cake
+                </h3>
 
-                <strong>₹179</strong>
+                <p>
+                    Rich chocolate cake with creamy frosting
+                </p>
 
-                <button onclick="addToCart('Chocolate Cake', 179)">
+                <strong>
+                    ₹179
+                </strong>
+
+                <button
+                    onclick="addToCart('Chocolate Cake', 179)">
                     Add to Cart
                 </button>
+
             </div>
 
         </div>
+
     </section>
 
 
+    <!-- ORDER TRACKING -->
     <section id="orders" class="section">
 
-        <h2>📦 Track Your Order</h2>
+        <h2>
+            📦 Track Your Order
+        </h2>
+
 
         <div id="orderStatus" class="order-box">
 
             <div class="status-step active">
-                <span>✓</span>
-                <p>Order Placed</p>
+
+                <span>
+                    ✓
+                </span>
+
+                <p>
+                    Order Placed
+                </p>
+
             </div>
+
 
             <div class="status-line"></div>
 
+
             <div class="status-step">
-                <span>2</span>
-                <p>Preparing</p>
+
+                <span>
+                    2
+                </span>
+
+                <p>
+                    Preparing
+                </p>
+
             </div>
+
 
             <div class="status-line"></div>
 
+
             <div class="status-step">
-                <span>3</span>
-                <p>Out for Delivery</p>
+
+                <span>
+                    3
+                </span>
+
+                <p>
+                    Out for Delivery
+                </p>
+
             </div>
+
 
             <div class="status-line"></div>
 
+
             <div class="status-step">
-                <span>4</span>
-                <p>Delivered</p>
+
+                <span>
+                    4
+                </span>
+
+                <p>
+                    Delivered
+                </p>
+
             </div>
 
         </div>
+
 
         <p id="trackingMessage">
             Your order status will appear here.
@@ -262,15 +471,22 @@
     </section>
 
 
+    <!-- REGISTRATION MODAL -->
     <div id="registrationModal" class="modal">
 
         <div class="modal-content">
 
-            <span class="close" onclick="closeRegistration()">
+            <span
+                class="close"
+                onclick="closeRegistration()">
                 &times;
             </span>
 
-            <h2>👤 User Registration</h2>
+
+            <h2>
+                👤 User Registration
+            </h2>
+
 
             <form onsubmit="registerUser(event)">
 
@@ -281,12 +497,14 @@
                     required
                 >
 
+
                 <input
                     type="email"
                     id="userEmail"
                     placeholder="Enter your email"
                     required
                 >
+
 
                 <input
                     type="tel"
@@ -295,46 +513,68 @@
                     required
                 >
 
-                <button type="submit" class="primary-btn">
+
+                <button
+                    type="submit"
+                    class="primary-btn">
                     Register
                 </button>
 
             </form>
 
         </div>
+
     </div>
 
 
+    <!-- CART MODAL -->
     <div id="cartModal" class="modal">
 
         <div class="modal-content cart-content">
 
-            <span class="close" onclick="closeCart()">
+            <span
+                class="close"
+                onclick="closeCart()">
                 &times;
             </span>
 
-            <h2>🛒 Your Cart</h2>
+
+            <h2>
+                🛒 Your Cart
+            </h2>
+
 
             <div id="cartItems"></div>
 
+
             <div class="cart-total">
+
                 <strong>
                     Total: ₹<span id="cartTotal">0</span>
                 </strong>
+
             </div>
 
-            <button onclick="placeOrder()" class="primary-btn">
+
+            <button
+                onclick="placeOrder()"
+                class="primary-btn">
                 Place Order
             </button>
 
         </div>
+
     </div>
 
 
+    <!-- FOOTER -->
     <footer>
+
         <p>
-            © 2026 FoodExpress | Food Delivery Management System
+            © 2026 FoodExpress |
+            Food Delivery Management System
         </p>
+
     </footer>
 
 
