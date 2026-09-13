@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
   pull_request:
     branches:
       - main
@@ -14,10 +15,13 @@ permissions:
   id-token: write
 
 jobs:
+
   build-test-package:
+
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -25,6 +29,7 @@ jobs:
         run: |
           mkdir dist
           cp index.html style.css script.js dist/
+          cp restaurants.html menu.html cart.html checkout.html orders.html profile.html dist/
           echo "Build completed successfully."
 
       - name: Test application files
@@ -32,6 +37,12 @@ jobs:
           test -f dist/index.html
           test -f dist/style.css
           test -f dist/script.js
+          test -f dist/restaurants.html
+          test -f dist/menu.html
+          test -f dist/cart.html
+          test -f dist/checkout.html
+          test -f dist/orders.html
+          test -f dist/profile.html
           echo "All application files passed the test."
 
       - name: Package application
@@ -45,8 +56,13 @@ jobs:
         with:
           path: ./dist
 
+
   deploy:
+
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
     needs: build-test-package
+
     runs-on: ubuntu-latest
 
     environment:
@@ -54,6 +70,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+
       - name: Deploy application
         id: deployment
         uses: actions/deploy-pages@v4
